@@ -20,6 +20,7 @@ option java_multiple_files = true;
 option java_outer_classname = "L2XpuInfraMgrProto";
 
 import "networktypes.proto";
+import "component.proto";
 
 import "google/api/annotations.proto";
 import "google/api/client.proto";
@@ -146,7 +147,9 @@ message LogicalBridgeSpec {
 // operational status of a Logical Bridge
 message LogicalBridgeStatus {
     // operational state of a Logical Bridge
-    LBOperStatus oper_status = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+    LBOperStatus oper_status      = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+    // status of the components
+    repeated Component components = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
 }
 
 // CreateLogicalBridgeRequest structure
@@ -248,7 +251,9 @@ message BridgePortSpec {
 // operational status of a Bridge Port
 message BridgePortStatus {
     // operational status of a Bridge Port
-    BPOperStatus oper_status = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+    BPOperStatus oper_status      = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+    // status of the components
+    repeated Component components = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
 }
 
 // CreateBridgePortRequest structure

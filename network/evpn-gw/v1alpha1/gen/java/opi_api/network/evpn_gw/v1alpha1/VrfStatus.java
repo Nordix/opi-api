@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     exportRts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     logicalBridges_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     operStatus_ = 0;
+    components_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -113,6 +114,15 @@ private static final long serialVersionUID = 0L;
             operStatus_ = rawValue;
             break;
           }
+          case 74: {
+            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              components_ = new java.util.ArrayList<opi_api.network.evpn_gw.v1alpha1.Component>();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            components_.add(
+                input.readMessage(opi_api.network.evpn_gw.v1alpha1.Component.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -138,6 +148,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((mutable_bitField0_ & 0x00000004) != 0)) {
         logicalBridges_ = logicalBridges_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        components_ = java.util.Collections.unmodifiableList(components_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -435,6 +448,66 @@ private static final long serialVersionUID = 0L;
     return result == null ? opi_api.network.evpn_gw.v1alpha1.VRFOperStatus.UNRECOGNIZED : result;
   }
 
+  public static final int COMPONENTS_FIELD_NUMBER = 9;
+  private java.util.List<opi_api.network.evpn_gw.v1alpha1.Component> components_;
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<opi_api.network.evpn_gw.v1alpha1.Component> getComponentsList() {
+    return components_;
+  }
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder> 
+      getComponentsOrBuilderList() {
+    return components_;
+  }
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public int getComponentsCount() {
+    return components_.size();
+  }
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public opi_api.network.evpn_gw.v1alpha1.Component getComponents(int index) {
+    return components_.get(index);
+  }
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder getComponentsOrBuilder(
+      int index) {
+    return components_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -472,6 +545,9 @@ private static final long serialVersionUID = 0L;
     }
     if (operStatus_ != opi_api.network.evpn_gw.v1alpha1.VRFOperStatus.VRF_OPER_STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(8, operStatus_);
+    }
+    for (int i = 0; i < components_.size(); i++) {
+      output.writeMessage(9, components_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -525,6 +601,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(8, operStatus_);
     }
+    for (int i = 0; i < components_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, components_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -555,6 +635,8 @@ private static final long serialVersionUID = 0L;
     if (!getLogicalBridgesList()
         .equals(other.getLogicalBridgesList())) return false;
     if (operStatus_ != other.operStatus_) return false;
+    if (!getComponentsList()
+        .equals(other.getComponentsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -588,6 +670,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + OPER_STATUS_FIELD_NUMBER;
     hash = (53 * hash) + operStatus_;
+    if (getComponentsCount() > 0) {
+      hash = (37 * hash) + COMPONENTS_FIELD_NUMBER;
+      hash = (53 * hash) + getComponentsList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -720,6 +806,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getComponentsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -741,6 +828,12 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000004);
       operStatus_ = 0;
 
+      if (componentsBuilder_ == null) {
+        components_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      } else {
+        componentsBuilder_.clear();
+      }
       return this;
     }
 
@@ -788,6 +881,15 @@ private static final long serialVersionUID = 0L;
       }
       result.logicalBridges_ = logicalBridges_;
       result.operStatus_ = operStatus_;
+      if (componentsBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          components_ = java.util.Collections.unmodifiableList(components_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.components_ = components_;
+      } else {
+        result.components_ = componentsBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -881,6 +983,32 @@ private static final long serialVersionUID = 0L;
       }
       if (other.operStatus_ != 0) {
         setOperStatusValue(other.getOperStatusValue());
+      }
+      if (componentsBuilder_ == null) {
+        if (!other.components_.isEmpty()) {
+          if (components_.isEmpty()) {
+            components_ = other.components_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureComponentsIsMutable();
+            components_.addAll(other.components_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.components_.isEmpty()) {
+          if (componentsBuilder_.isEmpty()) {
+            componentsBuilder_.dispose();
+            componentsBuilder_ = null;
+            components_ = other.components_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            componentsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getComponentsFieldBuilder() : null;
+          } else {
+            componentsBuilder_.addAllMessages(other.components_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1671,6 +1799,318 @@ private static final long serialVersionUID = 0L;
       operStatus_ = 0;
       onChanged();
       return this;
+    }
+
+    private java.util.List<opi_api.network.evpn_gw.v1alpha1.Component> components_ =
+      java.util.Collections.emptyList();
+    private void ensureComponentsIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        components_ = new java.util.ArrayList<opi_api.network.evpn_gw.v1alpha1.Component>(components_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        opi_api.network.evpn_gw.v1alpha1.Component, opi_api.network.evpn_gw.v1alpha1.Component.Builder, opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder> componentsBuilder_;
+
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<opi_api.network.evpn_gw.v1alpha1.Component> getComponentsList() {
+      if (componentsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(components_);
+      } else {
+        return componentsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public int getComponentsCount() {
+      if (componentsBuilder_ == null) {
+        return components_.size();
+      } else {
+        return componentsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public opi_api.network.evpn_gw.v1alpha1.Component getComponents(int index) {
+      if (componentsBuilder_ == null) {
+        return components_.get(index);
+      } else {
+        return componentsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setComponents(
+        int index, opi_api.network.evpn_gw.v1alpha1.Component value) {
+      if (componentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureComponentsIsMutable();
+        components_.set(index, value);
+        onChanged();
+      } else {
+        componentsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setComponents(
+        int index, opi_api.network.evpn_gw.v1alpha1.Component.Builder builderForValue) {
+      if (componentsBuilder_ == null) {
+        ensureComponentsIsMutable();
+        components_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        componentsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addComponents(opi_api.network.evpn_gw.v1alpha1.Component value) {
+      if (componentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureComponentsIsMutable();
+        components_.add(value);
+        onChanged();
+      } else {
+        componentsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addComponents(
+        int index, opi_api.network.evpn_gw.v1alpha1.Component value) {
+      if (componentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureComponentsIsMutable();
+        components_.add(index, value);
+        onChanged();
+      } else {
+        componentsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addComponents(
+        opi_api.network.evpn_gw.v1alpha1.Component.Builder builderForValue) {
+      if (componentsBuilder_ == null) {
+        ensureComponentsIsMutable();
+        components_.add(builderForValue.build());
+        onChanged();
+      } else {
+        componentsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addComponents(
+        int index, opi_api.network.evpn_gw.v1alpha1.Component.Builder builderForValue) {
+      if (componentsBuilder_ == null) {
+        ensureComponentsIsMutable();
+        components_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        componentsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addAllComponents(
+        java.lang.Iterable<? extends opi_api.network.evpn_gw.v1alpha1.Component> values) {
+      if (componentsBuilder_ == null) {
+        ensureComponentsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, components_);
+        onChanged();
+      } else {
+        componentsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder clearComponents() {
+      if (componentsBuilder_ == null) {
+        components_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        componentsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder removeComponents(int index) {
+      if (componentsBuilder_ == null) {
+        ensureComponentsIsMutable();
+        components_.remove(index);
+        onChanged();
+      } else {
+        componentsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public opi_api.network.evpn_gw.v1alpha1.Component.Builder getComponentsBuilder(
+        int index) {
+      return getComponentsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder getComponentsOrBuilder(
+        int index) {
+      if (componentsBuilder_ == null) {
+        return components_.get(index);  } else {
+        return componentsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<? extends opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder> 
+         getComponentsOrBuilderList() {
+      if (componentsBuilder_ != null) {
+        return componentsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(components_);
+      }
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public opi_api.network.evpn_gw.v1alpha1.Component.Builder addComponentsBuilder() {
+      return getComponentsFieldBuilder().addBuilder(
+          opi_api.network.evpn_gw.v1alpha1.Component.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public opi_api.network.evpn_gw.v1alpha1.Component.Builder addComponentsBuilder(
+        int index) {
+      return getComponentsFieldBuilder().addBuilder(
+          index, opi_api.network.evpn_gw.v1alpha1.Component.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * status of the components
+     * </pre>
+     *
+     * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<opi_api.network.evpn_gw.v1alpha1.Component.Builder> 
+         getComponentsBuilderList() {
+      return getComponentsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        opi_api.network.evpn_gw.v1alpha1.Component, opi_api.network.evpn_gw.v1alpha1.Component.Builder, opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder> 
+        getComponentsFieldBuilder() {
+      if (componentsBuilder_ == null) {
+        componentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            opi_api.network.evpn_gw.v1alpha1.Component, opi_api.network.evpn_gw.v1alpha1.Component.Builder, opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder>(
+                components_,
+                ((bitField0_ & 0x00000008) != 0),
+                getParentForChildren(),
+                isClean());
+        components_ = null;
+      }
+      return componentsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

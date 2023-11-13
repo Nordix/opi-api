@@ -32,6 +32,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "networktypes.pb.h"
+#include "component.pb.h"
 #include "google/api/annotations.pb.h"
 #include "google/api/client.pb.h"
 #include <google/protobuf/empty.pb.h>
@@ -703,6 +704,7 @@ class VrfStatus final :
     kImportRtsFieldNumber = 5,
     kExportRtsFieldNumber = 6,
     kLogicalBridgesFieldNumber = 7,
+    kComponentsFieldNumber = 9,
     kRdFieldNumber = 3,
     kRmacFieldNumber = 4,
     kRoutingTableFieldNumber = 1,
@@ -781,6 +783,24 @@ class VrfStatus final :
   std::string* _internal_add_logical_bridges();
   public:
 
+  // repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  int components_size() const;
+  private:
+  int _internal_components_size() const;
+  public:
+  void clear_components();
+  ::opi_api::network::evpn_gw::v1alpha1::Component* mutable_components(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+      mutable_components();
+  private:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& _internal_components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _internal_add_components();
+  public:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* add_components();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+      components() const;
+
   // string rd = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];
   void clear_rd();
   const std::string& rd() const;
@@ -847,6 +867,7 @@ class VrfStatus final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> import_rts_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> export_rts_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> logical_bridges_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component > components_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rd_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rmac_;
     uint32_t routing_table_;
@@ -2415,8 +2436,27 @@ class SviStatus final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kComponentsFieldNumber = 2,
     kOperStatusFieldNumber = 1,
   };
+  // repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  int components_size() const;
+  private:
+  int _internal_components_size() const;
+  public:
+  void clear_components();
+  ::opi_api::network::evpn_gw::v1alpha1::Component* mutable_components(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+      mutable_components();
+  private:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& _internal_components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _internal_add_components();
+  public:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* add_components();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+      components() const;
+
   // .opi_api.network.evpn_gw.v1alpha1.SVIOperStatus oper_status = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];
   void clear_oper_status();
   ::opi_api::network::evpn_gw::v1alpha1::SVIOperStatus oper_status() const;
@@ -2434,6 +2474,7 @@ class SviStatus final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component > components_;
     int oper_status_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -4287,6 +4328,43 @@ inline void VrfStatus::set_oper_status(::opi_api::network::evpn_gw::v1alpha1::VR
   // @@protoc_insertion_point(field_set:opi_api.network.evpn_gw.v1alpha1.VrfStatus.oper_status)
 }
 
+// repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];
+inline int VrfStatus::_internal_components_size() const {
+  return _impl_.components_.size();
+}
+inline int VrfStatus::components_size() const {
+  return _internal_components_size();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* VrfStatus::mutable_components(int index) {
+  // @@protoc_insertion_point(field_mutable:opi_api.network.evpn_gw.v1alpha1.VrfStatus.components)
+  return _impl_.components_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+VrfStatus::mutable_components() {
+  // @@protoc_insertion_point(field_mutable_list:opi_api.network.evpn_gw.v1alpha1.VrfStatus.components)
+  return &_impl_.components_;
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& VrfStatus::_internal_components(int index) const {
+  return _impl_.components_.Get(index);
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& VrfStatus::components(int index) const {
+  // @@protoc_insertion_point(field_get:opi_api.network.evpn_gw.v1alpha1.VrfStatus.components)
+  return _internal_components(index);
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* VrfStatus::_internal_add_components() {
+  return _impl_.components_.Add();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* VrfStatus::add_components() {
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _add = _internal_add_components();
+  // @@protoc_insertion_point(field_add:opi_api.network.evpn_gw.v1alpha1.VrfStatus.components)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+VrfStatus::components() const {
+  // @@protoc_insertion_point(field_list:opi_api.network.evpn_gw.v1alpha1.VrfStatus.components)
+  return _impl_.components_;
+}
+
 // -------------------------------------------------------------------
 
 // CreateVrfRequest
@@ -5413,6 +5491,43 @@ inline void SviStatus::_internal_set_oper_status(::opi_api::network::evpn_gw::v1
 inline void SviStatus::set_oper_status(::opi_api::network::evpn_gw::v1alpha1::SVIOperStatus value) {
   _internal_set_oper_status(value);
   // @@protoc_insertion_point(field_set:opi_api.network.evpn_gw.v1alpha1.SviStatus.oper_status)
+}
+
+// repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+inline int SviStatus::_internal_components_size() const {
+  return _impl_.components_.size();
+}
+inline int SviStatus::components_size() const {
+  return _internal_components_size();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* SviStatus::mutable_components(int index) {
+  // @@protoc_insertion_point(field_mutable:opi_api.network.evpn_gw.v1alpha1.SviStatus.components)
+  return _impl_.components_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+SviStatus::mutable_components() {
+  // @@protoc_insertion_point(field_mutable_list:opi_api.network.evpn_gw.v1alpha1.SviStatus.components)
+  return &_impl_.components_;
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& SviStatus::_internal_components(int index) const {
+  return _impl_.components_.Get(index);
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& SviStatus::components(int index) const {
+  // @@protoc_insertion_point(field_get:opi_api.network.evpn_gw.v1alpha1.SviStatus.components)
+  return _internal_components(index);
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* SviStatus::_internal_add_components() {
+  return _impl_.components_.Add();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* SviStatus::add_components() {
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _add = _internal_add_components();
+  // @@protoc_insertion_point(field_add:opi_api.network.evpn_gw.v1alpha1.SviStatus.components)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+SviStatus::components() const {
+  // @@protoc_insertion_point(field_list:opi_api.network.evpn_gw.v1alpha1.SviStatus.components)
+  return _impl_.components_;
 }
 
 // -------------------------------------------------------------------

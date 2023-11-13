@@ -3,6 +3,11 @@
 
 ## Table of Contents
 
+- [component.proto](#component-proto)
+    - [Component](#opi_api-network-evpn_gw-v1alpha1-Component)
+  
+    - [CompStatus](#opi_api-network-evpn_gw-v1alpha1-CompStatus)
+  
 - [l2_xpu_infra_mgr.proto](#l2_xpu_infra_mgr-proto)
     - [BridgePort](#opi_api-network-evpn_gw-v1alpha1-BridgePort)
     - [BridgePortSpec](#opi_api-network-evpn_gw-v1alpha1-BridgePortSpec)
@@ -63,6 +68,56 @@
 
 
 
+<a name="component-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## component.proto
+
+
+
+<a name="opi_api-network-evpn_gw-v1alpha1-Component"></a>
+
+### Component
+Component represents a subscribed component (e.g. FRR component, Linux component etc...)
+(-- api-linter: core::0123::resource-annotation=disabled
+    aip.dev/not-precedent: The name here is not the unique identifier of a DB object 
+                           just the name of the component that is subscribed. --)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | Component&#39;s name |
+| status | [CompStatus](#opi_api-network-evpn_gw-v1alpha1-CompStatus) |  | Component&#39;s status |
+| details | [string](#string) |  | Component&#39;s details in the form of json string |
+
+
+
+
+
+ 
+
+
+<a name="opi_api-network-evpn_gw-v1alpha1-CompStatus"></a>
+
+### CompStatus
+CompStatus reflects the status of a component
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMP_STATUS_UNSPECIFIED | 0 | component status is &#34;unspecified&#34; |
+| COMP_STATUS_PENDING | 1 | component status is &#34;pending&#34; |
+| COMP_STATUS_SUCCESS | 2 | component status is &#34;success&#34; |
+| COMP_STATUS_ERROR | 3 | component status is &#34;error&#34; |
+
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="l2_xpu_infra_mgr-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -113,6 +168,7 @@ operational status of a Bridge Port
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | oper_status | [BPOperStatus](#opi_api-network-evpn_gw-v1alpha1-BPOperStatus) |  | operational status of a Bridge Port |
+| components | [Component](#opi_api-network-evpn_gw-v1alpha1-Component) | repeated | status of the components |
 
 
 
@@ -324,6 +380,7 @@ operational status of a Logical Bridge
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | oper_status | [LBOperStatus](#opi_api-network-evpn_gw-v1alpha1-LBOperStatus) |  | operational state of a Logical Bridge |
+| components | [Component](#opi_api-network-evpn_gw-v1alpha1-Component) | repeated | status of the components |
 
 
 
@@ -655,6 +712,7 @@ operational status of a Svi
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | oper_status | [SVIOperStatus](#opi_api-network-evpn_gw-v1alpha1-SVIOperStatus) |  | operational status of a Svi |
+| components | [Component](#opi_api-network-evpn_gw-v1alpha1-Component) | repeated | status of the components |
 
 
 
@@ -745,6 +803,7 @@ operational status of a Vrf
 | export_rts | [string](#string) | repeated | List of export RTs |
 | logical_bridges | [string](#string) | repeated | List of connected Logical Bridges to Vrf This defines the VLANs that are connected to the Vrf |
 | oper_status | [VRFOperStatus](#opi_api-network-evpn_gw-v1alpha1-VRFOperStatus) |  | operational status of a Vrf |
+| components | [Component](#opi_api-network-evpn_gw-v1alpha1-Component) | repeated | status of the components |
 
 
 

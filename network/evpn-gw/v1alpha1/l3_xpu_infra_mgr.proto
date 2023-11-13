@@ -20,6 +20,7 @@ option java_multiple_files = true;
 option java_outer_classname = "L3XpuInfraMgrProto";
 
 import "networktypes.proto";
+import "component.proto";
 
 import "google/api/annotations.proto";
 import "google/api/client.proto";
@@ -165,6 +166,8 @@ message VrfStatus {
     repeated string logical_bridges   = 7 [(google.api.field_behavior) = OUTPUT_ONLY];
     // operational status of a Vrf
     VRFOperStatus oper_status         = 8 [(google.api.field_behavior) = OUTPUT_ONLY];
+    // status of the components
+    repeated Component components     = 9 [(google.api.field_behavior) = OUTPUT_ONLY];
 }
 
 // CreateVrfRequest structure
@@ -281,7 +284,9 @@ message SviSpec {
 // operational status of a Svi
 message SviStatus {
     // operational status of a Svi
-    SVIOperStatus oper_status  = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+    SVIOperStatus oper_status     = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+    // status of the components
+    repeated Component components = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
 }
 
 // CreateSviRequest structure

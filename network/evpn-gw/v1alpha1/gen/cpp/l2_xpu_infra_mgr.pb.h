@@ -32,6 +32,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "networktypes.pb.h"
+#include "component.pb.h"
 #include "google/api/annotations.pb.h"
 #include "google/api/client.pb.h"
 #include <google/protobuf/empty.pb.h>
@@ -717,8 +718,27 @@ class LogicalBridgeStatus final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kComponentsFieldNumber = 2,
     kOperStatusFieldNumber = 1,
   };
+  // repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  int components_size() const;
+  private:
+  int _internal_components_size() const;
+  public:
+  void clear_components();
+  ::opi_api::network::evpn_gw::v1alpha1::Component* mutable_components(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+      mutable_components();
+  private:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& _internal_components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _internal_add_components();
+  public:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* add_components();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+      components() const;
+
   // .opi_api.network.evpn_gw.v1alpha1.LBOperStatus oper_status = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];
   void clear_oper_status();
   ::opi_api::network::evpn_gw::v1alpha1::LBOperStatus oper_status() const;
@@ -736,6 +756,7 @@ class LogicalBridgeStatus final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component > components_;
     int oper_status_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2263,8 +2284,27 @@ class BridgePortStatus final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kComponentsFieldNumber = 2,
     kOperStatusFieldNumber = 1,
   };
+  // repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+  int components_size() const;
+  private:
+  int _internal_components_size() const;
+  public:
+  void clear_components();
+  ::opi_api::network::evpn_gw::v1alpha1::Component* mutable_components(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+      mutable_components();
+  private:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& _internal_components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _internal_add_components();
+  public:
+  const ::opi_api::network::evpn_gw::v1alpha1::Component& components(int index) const;
+  ::opi_api::network::evpn_gw::v1alpha1::Component* add_components();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+      components() const;
+
   // .opi_api.network.evpn_gw.v1alpha1.BPOperStatus oper_status = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];
   void clear_oper_status();
   ::opi_api::network::evpn_gw::v1alpha1::BPOperStatus oper_status() const;
@@ -2282,6 +2322,7 @@ class BridgePortStatus final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component > components_;
     int oper_status_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -3705,6 +3746,43 @@ inline void LogicalBridgeStatus::set_oper_status(::opi_api::network::evpn_gw::v1
   // @@protoc_insertion_point(field_set:opi_api.network.evpn_gw.v1alpha1.LogicalBridgeStatus.oper_status)
 }
 
+// repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+inline int LogicalBridgeStatus::_internal_components_size() const {
+  return _impl_.components_.size();
+}
+inline int LogicalBridgeStatus::components_size() const {
+  return _internal_components_size();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* LogicalBridgeStatus::mutable_components(int index) {
+  // @@protoc_insertion_point(field_mutable:opi_api.network.evpn_gw.v1alpha1.LogicalBridgeStatus.components)
+  return _impl_.components_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+LogicalBridgeStatus::mutable_components() {
+  // @@protoc_insertion_point(field_mutable_list:opi_api.network.evpn_gw.v1alpha1.LogicalBridgeStatus.components)
+  return &_impl_.components_;
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& LogicalBridgeStatus::_internal_components(int index) const {
+  return _impl_.components_.Get(index);
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& LogicalBridgeStatus::components(int index) const {
+  // @@protoc_insertion_point(field_get:opi_api.network.evpn_gw.v1alpha1.LogicalBridgeStatus.components)
+  return _internal_components(index);
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* LogicalBridgeStatus::_internal_add_components() {
+  return _impl_.components_.Add();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* LogicalBridgeStatus::add_components() {
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _add = _internal_add_components();
+  // @@protoc_insertion_point(field_add:opi_api.network.evpn_gw.v1alpha1.LogicalBridgeStatus.components)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+LogicalBridgeStatus::components() const {
+  // @@protoc_insertion_point(field_list:opi_api.network.evpn_gw.v1alpha1.LogicalBridgeStatus.components)
+  return _impl_.components_;
+}
+
 // -------------------------------------------------------------------
 
 // CreateLogicalBridgeRequest
@@ -4749,6 +4827,43 @@ inline void BridgePortStatus::_internal_set_oper_status(::opi_api::network::evpn
 inline void BridgePortStatus::set_oper_status(::opi_api::network::evpn_gw::v1alpha1::BPOperStatus value) {
   _internal_set_oper_status(value);
   // @@protoc_insertion_point(field_set:opi_api.network.evpn_gw.v1alpha1.BridgePortStatus.oper_status)
+}
+
+// repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];
+inline int BridgePortStatus::_internal_components_size() const {
+  return _impl_.components_.size();
+}
+inline int BridgePortStatus::components_size() const {
+  return _internal_components_size();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* BridgePortStatus::mutable_components(int index) {
+  // @@protoc_insertion_point(field_mutable:opi_api.network.evpn_gw.v1alpha1.BridgePortStatus.components)
+  return _impl_.components_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >*
+BridgePortStatus::mutable_components() {
+  // @@protoc_insertion_point(field_mutable_list:opi_api.network.evpn_gw.v1alpha1.BridgePortStatus.components)
+  return &_impl_.components_;
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& BridgePortStatus::_internal_components(int index) const {
+  return _impl_.components_.Get(index);
+}
+inline const ::opi_api::network::evpn_gw::v1alpha1::Component& BridgePortStatus::components(int index) const {
+  // @@protoc_insertion_point(field_get:opi_api.network.evpn_gw.v1alpha1.BridgePortStatus.components)
+  return _internal_components(index);
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* BridgePortStatus::_internal_add_components() {
+  return _impl_.components_.Add();
+}
+inline ::opi_api::network::evpn_gw::v1alpha1::Component* BridgePortStatus::add_components() {
+  ::opi_api::network::evpn_gw::v1alpha1::Component* _add = _internal_add_components();
+  // @@protoc_insertion_point(field_add:opi_api.network.evpn_gw.v1alpha1.BridgePortStatus.components)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::opi_api::network::evpn_gw::v1alpha1::Component >&
+BridgePortStatus::components() const {
+  // @@protoc_insertion_point(field_list:opi_api.network.evpn_gw.v1alpha1.BridgePortStatus.components)
+  return _impl_.components_;
 }
 
 // -------------------------------------------------------------------

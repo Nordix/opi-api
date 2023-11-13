@@ -25,4 +25,48 @@ public interface SviStatusOrBuilder extends
    * @return The operStatus.
    */
   opi_api.network.evpn_gw.v1alpha1.SVIOperStatus getOperStatus();
+
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<opi_api.network.evpn_gw.v1alpha1.Component> 
+      getComponentsList();
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  opi_api.network.evpn_gw.v1alpha1.Component getComponents(int index);
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  int getComponentsCount();
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<? extends opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder> 
+      getComponentsOrBuilderList();
+  /**
+   * <pre>
+   * status of the components
+   * </pre>
+   *
+   * <code>repeated .opi_api.network.evpn_gw.v1alpha1.Component components = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  opi_api.network.evpn_gw.v1alpha1.ComponentOrBuilder getComponentsOrBuilder(
+      int index);
 }
